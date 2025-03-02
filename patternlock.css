@@ -291,8 +291,40 @@ svg.patternlock.error g.lock-actives circle {
     transition-duration: .3s;
 }
 
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.3rem;
+    color: #4b5563;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    transition: 0.3s ease;
+    position: relative;
+}
 
-.menu-bar {
+.menu-item:hover .text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.6rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover .icon {
+    color: #ef4444;
+}
+
+/* .menu-bar {
     padding: 0.5rem;
     border-radius: 1rem;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
@@ -301,6 +333,25 @@ svg.patternlock.error g.lock-actives circle {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
+} */
+
+.nav-glow {
+    position: absolute;
+    inset: -0.5rem;
+    background: radial-gradient(circle,
+            transparent 0%,
+            rgba(239, 68, 68, 0.2) 30%,
+            rgba(239, 68, 68, 0.1) 60%,
+            transparent 100%);
+    border-radius: 1.5rem;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.menu-bar:hover .nav-glow {
+    opacity: 1;
 }
 
 .menu-bar ul {
@@ -313,6 +364,10 @@ svg.patternlock.error g.lock-actives circle {
 }
 
 .menu-item {
+    position: relative;
+}
+
+.menu-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -320,25 +375,11 @@ svg.patternlock.error g.lock-actives circle {
     color: #4b5563;
     text-decoration: none;
     border-radius: 0.75rem;
-    transition: background 0.3s ease;
-    position: relative;
+    transition: color 0.3s ease;
 }
 
-.menu-item .text {
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap;
-}
-
-.menu-item:hover .text {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.menu-item:hover {
-    background: rgba(0, 0, 0, 0.1);
-    padding-right: 1.5rem;
+.menu-link:hover {
+    color: #111827;
 }
 
 .icon {
@@ -348,6 +389,14 @@ svg.patternlock.error g.lock-actives circle {
     transition: color 0.3s ease;
 }
 
-.menu-item:hover .icon {
+.menu-link:hover .icon {
     color: #ef4444;
+}
+
+.text {
+    display: none;
+}
+
+.menu-item:hover .text {
+    display: inline;
 }
