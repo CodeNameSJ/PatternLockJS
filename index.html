@@ -30,12 +30,14 @@
                     </a>
                 </li>
             </ul>
-            <input type="checkbox" id="checkboxInput" onclick="toggleDarkMode()">
-            <label for="checkboxInput" class="toggleSwitch">
         </nav>
     </div>
 
-    <div class="container patternlock">
+    <input type="checkbox" class="theme-checkbox" id="checkboxInput" onclick="toggleDarkMode()">
+    <label for="checkboxInput" class="toggleSwitch">
+    </label>
+
+    <div class="container">
         <div class="container-info">
             <h1 class="title" id="test">Pattern Lock</h1>
             <div class="grid">
@@ -57,10 +59,9 @@
                             <circle cx="80" cy="80" r="2" />
                         </g>
                     </svg>
-                    </label>
                 </div>
+                <p class="test" id="test">Draw your pattern</p>
             </div>
-            <p class=" patternlock" id="test">Draw your pattern</p>
         </div>
     </div>
 
