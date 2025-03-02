@@ -1,10 +1,12 @@
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 82vh;
+    width: 82vw;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
     background: rgb(24, 24, 24);
@@ -32,6 +34,7 @@ body {
 .container {
     --background: linear-gradient(to right, #13b37f 0%, #11a3c8 100%);
     overflow: visible;
+
     background: var(--background);
     position: relative;
     z-index: 1;
@@ -65,10 +68,10 @@ body {
 .container-info {
     --color: #1f1a1d;
     background: var(--color);
+    align-items: center;
+    justify-content: center;
     color: var(--color);
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
     overflow: visible;
@@ -78,17 +81,13 @@ body {
 .container:hover {
     border-bottom-right-radius: 50px;
     border-top-left-radius: 50px;
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .container-info:hover {
     border-bottom-right-radius: 45px;
     border-top-left-radius: 45px;
-    transform: scale(1.05);
-}
-
-.container .title {
-    font-weight: light;
+    transform: scale(1.03);
 }
 
 /*Hover*/
@@ -104,40 +103,32 @@ body {
     transition: color 1s;
 }
 
-.grid {
+.box {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-radius: 30px;
-    /* box-shadow: 6px 6px 6px rgb(25, 25, 25); */
-    /* -6px -6px 6px rgb(60, 60, 60); */
+    /* box-shadow: 6px 6px 6px rgb(25, 25, 25),
+        -6px -6px 6px rgb(60, 60, 60); */
     color: white;
     position: relative;
     font-family: sans-serif;
-}
-
-.grid {
-    display: flex;
     flex-wrap: wrap;
-
     justify-content: center;
-    align-items: center;
     gap: 10px;
-    border-radius: 30px;
     width: 90%;
     max-width: 600px;
     height: auto;
-    color: white;
-    font-family: sans-serif;
-    position: relative;
     padding: 10px;
 }
 
-.grid .box {
-
+.box .grid {
     border: 1px solid rgba(255, 255, 255, 0.3);
     -webkit-backdrop-filter: blur(20px);
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.06);
@@ -151,7 +142,7 @@ body {
     max-height: 80px;
 }
 
-.grid .box:hover {
+.box .grid:hover {
     box-shadow: 0px 0px 20px 1px #ffffff3f;
     border: 1px solid rgba(255, 255, 255, 0.454);
 }
@@ -160,7 +151,7 @@ body {
     color: white;
 }
 
-.test {
+.subtitle {
     text-align: center;
     margin-top: 5%;
     font-size: 0.6em;
@@ -242,11 +233,8 @@ svg.patternlock.error g.lock-actives circle {
     align-items: center;
     justify-content: center;
     position: fixed;
-
     bottom: 20px;
-
     right: 20px;
-
     width: 50px;
     height: 30px;
     background-color: rgb(255, 255, 255);
@@ -320,7 +308,7 @@ svg.patternlock.error g.lock-actives circle {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(209, 213, 219, 0.4);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    grid-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
 } */
@@ -400,12 +388,12 @@ svg.patternlock.error g.lock-actives circle {
         padding: 1rem;
     }
 
-    .grid {
+    .box {
         width: 100%;
         max-width: 400px;
     }
 
-    .grid .box {
+    .box .grid {
         width: 22vw;
         height: 22vw;
     }
@@ -423,11 +411,11 @@ svg.patternlock.error g.lock-actives circle {
         width: 60vw;
     }
 
-    .grid {
+    .box {
         flex-direction: column;
     }
 
-    .grid .box {
+    .box .grid {
         width: 80px;
         height: 80px;
     }
