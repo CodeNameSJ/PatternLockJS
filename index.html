@@ -7,36 +7,60 @@
     <!-- build:css styles.css -->
     <link rel="stylesheet" href="patternlock.css">
     <!-- endbuild -->
-
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div class="menu-container">
+        <nav class="menu-bar">
+            <div class="nav-glow"></div>
+            <ul>
+                <li>
+                    <a href="https://github.com/SJ-Shubh" class="menu-item">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </span>
+                        <span class="text">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <div class="container patternlock">
-        <h1 class="patternlock" id="test">Pattern Lock</h1>
-        <div class="grid">
-            <svg class="patternlock" id="lock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g class="lock-actives patternlock"></g>
-                <g class="lock-lines patternlock"></g>
-                <g class="lock-dots patternlock">
-                    <circle cx="20" cy="20" r="2" />
-                    <circle cx="50" cy="20" r="2" />
-                    <circle cx="80" cy="20" r="2" />
+        <div class="container-info">
+            <h1 class="title" id="test">Pattern Lock</h1>
+            <div class="grid">
+                <div class="box">
+                    <svg class="patternlock" id="lock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g class="lock-actives patternlock"></g>
+                        <g class="lock-lines patternlock"></g>
+                        <g class="lock-dots patternlock">
+                            <circle cx="20" cy="20" r="2" />
+                            <circle cx="50" cy="20" r="2" />
+                            <circle cx="80" cy="20" r="2" />
 
-                    <circle cx="20" cy="50" r="2" />
-                    <circle cx="50" cy="50" r="2" />
-                    <circle cx="80" cy="50" r="2" />
+                            <circle cx="20" cy="50" r="2" />
+                            <circle cx="50" cy="50" r="2" />
+                            <circle cx="80" cy="50" r="2" />
 
-                    <circle cx="20" cy="80" r="2" />
-                    <circle cx="50" cy="80" r="2" />
-                    <circle cx="80" cy="80" r="2" />
-                </g>
-            </svg>
-            <p class="test patternlock" id="test">Draw your pattern</p>
-            <input type="checkbox" id="checkboxInput" onclick="toggleDarkMode()">
-            <label for="checkboxInput" class="toggleSwitch">
-            </label>
+                            <circle cx="20" cy="80" r="2" />
+                            <circle cx="50" cy="80" r="2" />
+                            <circle cx="80" cy="80" r="2" />
+                        </g>
+                    </svg>
+                    </label>
+                </div>
+                <!-- <input type="checkbox" id="checkboxInput" onclick="toggleDarkMode()">
+                <label for="checkboxInput" class="toggleSwitch"> -->
+            </div>
+            <p class=" patternlock" id="test">Draw your pattern</p>
         </div>
     </div>
 

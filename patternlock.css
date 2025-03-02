@@ -5,30 +5,17 @@
     border-radius: 2px;
 }
 
-
 body {
-    --s: 200px;
-    /* control the size */
-    --c1: #1d1d1d;
-    --c2: #4e4f51;
-    --c3: #3c3c3c;
-
-    background: repeating-conic-gradient(from 30deg,
-            #0000 0 120deg,
-            var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
-        repeating-conic-gradient(from 30deg,
-            var(--c1) 0 60deg,
-            var(--c2) 0 120deg,
-            var(--c3) 0 180deg);
-    background-size: var(--s) calc(var(--s) * 0.577);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    transition: 0.1s, color 0.3s;
     font-family: 'Inter', sans-serif;
+    background: rgb(24, 24, 24);
+    transition: 0.1s, color 0.3s;
 }
 
 .dark-mode .patternlock {
@@ -41,35 +28,97 @@ body {
 }
 
 /* Main Container */
+.container {
+    --background: linear-gradient(to right, #13b37f 0%, #11a3c8 100%);
+
+    padding: 0.9px;
+    border-radius: 0.7rem;
+    overflow: visible;
+    background: #f7ba2b;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+}
+
+.container::after {
+    position: absolute;
+    content: "";
+    top: -22px;
+    left: 0px;
+    right: 0;
+    z-index: -1;
+    transform: scale(0.82);
+    filter: blur(36px);
+    background: #f7ba2b;
+    background: var(--background);
+    transition: opacity 0.5s;
+}
+
+.container-info {
+    --color: #1f1a1d;
+    background: var(--color);
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: 0.7rem;
+}
+
+.container .title {
+    font-weight: light;
+}
+
+/*Hover*/
+.container:hover::after {
+    opacity: 0.6;
+    padding: 0.7rem 0;
+    top: 18px;
+    transition: 0.6s;
+}
+
+.container:hover .container-info {
+    color: #fff9f9;
+    transition: color 1s;
+}
+
 .grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(39, 39, 39, 0.3);
+    border-radius: 30px;
+    box-shadow: 6px 6px 6px rgb(25, 25, 25);
+    /* -6px -6px 6px rgb(60, 60, 60); */
+    color: white;
+    position: relative;
+    font-family: sans-serif;
 }
 
-.container {
-    position: relative;
+.grid .box {
+
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 0.7rem;
+    transition: all ease 0.3s;
+}
+
+.grid .box {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background: #121212;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 10px 12px 12px rgba(200, 200, 200, 0.3);
-    justify-self: center;
-    align-items: center;
-    width: 66vw;
-    height: 24rem;
+    justify-content: space-between;
+}
+
+.grid .box:hover {
+    box-shadow: 0px 0px 20px 1px #ffffff3f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
 }
 
 .patternlock {
     color: white;
-}
-
-h1#test.patternlock {
-    width: 50%;
 }
 
 .test {
@@ -80,8 +129,7 @@ h1#test.patternlock {
     font-size: 0.6em;
 }
 
-h1 {
-    padding-top: 50px;
+.title {
     text-align: center;
     align-content: center;
     height: 15vh;
@@ -241,4 +289,65 @@ svg.patternlock.error g.lock-actives circle {
 #checkboxInput:checked+.toggleSwitch {
     background-color: rgb(79, 79, 79);
     transition-duration: .3s;
+}
+
+
+.menu-bar {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(209, 213, 219, 0.4);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #4b5563;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.menu-item .text {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.menu-item:hover .text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+    padding-right: 1.5rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover .icon {
+    color: #ef4444;
 }
