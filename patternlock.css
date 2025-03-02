@@ -1,3 +1,117 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    border-radius: 2px;
+}
+
+
+body {
+
+    --s: 200px;
+    /* control the size */
+    --c1: #1d1d1d;
+    --c2: #4e4f51;
+    --c3: #3c3c3c;
+
+    background: repeating-conic-gradient(from 30deg,
+            #0000 0 120deg,
+            var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+        repeating-conic-gradient(from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg);
+    background-size: var(--s) calc(var(--s) * 0.577);
+
+    /* background: #121212;
+    display: flexbox;
+    color: rgb(201, 201, 201);
+    font-family: 'Inter', sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh; 
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+     */
+}
+
+.dark-mode .patternlock {
+    background: rgb(223, 223, 223);
+    color: #121212;
+}
+
+.dark-mode svg.patternlock.success g.lock-actives circle {
+    stroke: rgb(0, 255, 0);
+    fill: green;
+}
+
+.dark-mode svg.patternlock g.lock-dots circle {
+    fill: black;
+}
+
+/* Main Container */
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: auto;
+    /* background: rgb(255, 255, 255); */
+    background: #121212;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+    align-items: center;
+    width: 90vw;
+    height: 21rem;
+}
+
+.patternlock {
+    color: white;
+
+}
+
+.test {
+    align-content: end;
+}
+
+h1 {
+    text-align: center;
+    align-content: center;
+    height: 15vh;
+    font-size: 6vh;
+}
+
+/* Lock Area */
+#lock {
+    width: 100%;
+    height: calc(100% - 15vh - 80px);
+    min-height: 50px;
+}
+
+.test {
+    font-size: smaller;
+    text-align: justify;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: smaller;
+    }
+
+    .test {
+        font-size: smaller;
+    }
+}
+
+/* Pattern Lock SVG */
 svg.patternlock g.lock-lines line {
     stroke-width: 1.5;
     stroke: black;
@@ -6,7 +120,7 @@ svg.patternlock g.lock-lines line {
 
 svg.patternlock g.lock-dots circle {
     stroke: transparent;
-    fill: black;
+    fill: rgb(255, 255, 255);
     stroke-width: 13.5;
 }
 
@@ -22,22 +136,85 @@ svg.patternlock g.lock-lines line {
     stroke-linecap: round;
 }
 
+/* Success/Error Indicators */
 svg.patternlock.success g.lock-actives circle {
+    stroke: rgb(0, 255, 0);
     fill: green;
 }
 
 svg.patternlock.error g.lock-actives circle {
-    fill: red;
+    stroke: red;
+    fill: rgb(163, 0, 0);
 }
 
+/* Pattern Lock Animation */
 @keyframes lock-activate-dot {
     0% {
         transform: scale(0);
     }
+
     75% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1.0);
     }
+}
+
+/* To hide the checkbox */
+#checkboxInput {
+    display: none;
+}
+
+.toggleSwitch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 300px;
+    right: 3px;
+    width: 50px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.toggleSwitch::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    left: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition-duration: .2s;
+    box-shadow: 5px 2px 7px rgba(8, 8, 8, 0.26);
+    border: 5px solid white;
+}
+
+#checkboxInput:checked+.toggleSwitch::after {
+    transform: translateX(100%);
+    transition-duration: .2s;
+    background-color: white;
+}
+
+/* Switch background change */
+#checkboxInput:checked+.toggleSwitch {
+    background-color: rgb(79, 79, 79);
+    transition-duration: .2s;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    max-height: 100vh;
+    overflow: hidden;
+    transition: 0.3s, color 0.3s;
 }

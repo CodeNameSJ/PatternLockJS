@@ -1,8 +1,12 @@
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
 (function (factory) {
     var global = Function('return this')() || (0, eval)('this');
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['jquery'], function($) {
+        define(['jquery'], function ($) {
             return factory($, global)
         });
     } else if (typeof exports === 'object') {
@@ -81,7 +85,7 @@
         }
 
         function getPattern() {
-            return parseInt(code.map((i) => dots.index(i)+1).join(''))
+            return parseInt(code.map((i) => dots.index(i) + 1).join(''))
         }
 
         function end() {
@@ -157,7 +161,7 @@
         }
 
         function updateLine(line) {
-            return function(e) {
+            return function (e) {
                 e.preventDefault()
                 if (currentline !== line) return
                 let pos = svgPosition(e.target, e)
@@ -169,7 +173,7 @@
 
         function discoverDot(e, target) {
             if (!target) {
-                let {x, y} = getMousePos(e)
+                let { x, y } = getMousePos(e)
                 target = document.elementFromPoint(x, y);
             }
             let cx = target.getAttribute('cx')
@@ -202,7 +206,7 @@
             currenthandler = updateLine(line)
             svg.on('touchmove mousemove', currenthandler)
             lines.append(line);
-            if(options.vibrate) vibrate()
+            if (options.vibrate) vibrate()
             return line
         }
 
@@ -231,12 +235,12 @@
         function getMousePos(e) {
             return {
                 x: e.clientX || e.originalEvent.touches[0].clientX,
-                y :e.clientY || e.originalEvent.touches[0].clientY
+                y: e.clientY || e.originalEvent.touches[0].clientY
             }
         }
 
         function svgPosition(element, e) {
-            let {x, y} = getMousePos(e)
+            let { x, y } = getMousePos(e)
             pt.x = x; pt.y = y;
             return pt.matrixTransform(element.getScreenCTM().inverse());
         }
@@ -244,7 +248,7 @@
 
 
     PatternLock.defaults = {
-        onPattern: () => {},
+        onPattern: () => { },
         vibrate: true,
     }
 
