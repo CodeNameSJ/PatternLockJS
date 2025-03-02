@@ -43,11 +43,6 @@ body {
     color: #121212;
 }
 
-.dark-mode svg.patternlock.success g.lock-actives circle {
-    stroke: rgb(0, 255, 0);
-    fill: green;
-}
-
 .dark-mode svg.patternlock g.lock-dots circle {
     fill: black;
 }
@@ -67,6 +62,12 @@ body {
     align-items: center;
     width: 90vw;
     height: 21rem;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
 }
 
 .patternlock {
@@ -98,10 +99,6 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-    .container {
-        flex-direction: column;
-    }
-
     h1 {
         font-size: smaller;
     }
@@ -144,7 +141,7 @@ svg.patternlock.success g.lock-actives circle {
 
 svg.patternlock.error g.lock-actives circle {
     stroke: red;
-    fill: rgb(163, 0, 0);
+    fill: rgb(160, 0, 0);
 }
 
 /* Pattern Lock Animation */

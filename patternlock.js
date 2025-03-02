@@ -93,11 +93,16 @@ function toggleDarkMode() {
             stopTrack(currentline)
             currentline && currentline.remove()
             svg.off(moveEvent, discoverDot)
-            let val = options.onPattern.call(self, getPattern())
+            const pattern = getPattern();
+            if (code.length < 4) { //Minimum pattern length
+                error();
+                return;
+            }
+            let val = options.onPattern.call(self, pattern);
             if (val === true) {
-                success()
+                success();
             } else if (val === false) {
-                error()
+                error();
             }
         }
 
