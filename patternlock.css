@@ -42,6 +42,9 @@ body {
 
 /* Main Container */
 .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(39, 39, 39, 0.3);
 }
@@ -54,10 +57,10 @@ body {
     background: #121212;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 1px 6px 16px rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 12px 12px rgba(200, 200, 200, 0.3);
     justify-self: center;
     align-items: center;
-    width: 93vw;
+    width: 66vw;
     height: 24rem;
 }
 
@@ -65,8 +68,16 @@ body {
     color: white;
 }
 
+h1#test.patternlock {
+    width: 50%;
+}
+
 .test {
-    align-content: end;
+
+    text-align: center;
+
+    margin-top: 5%;
+    font-size: 0.6em;
 }
 
 h1 {
@@ -74,7 +85,7 @@ h1 {
     text-align: center;
     align-content: center;
     height: 15vh;
-    font-size: 6vh;
+    font-size: 2rem;
 }
 
 /* Lock Area */
@@ -84,22 +95,21 @@ h1 {
     min-height: 50px;
 }
 
-.test {
-    text-align: center;
-    font-size: 1em;
-}
+
 
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column;
         align-items: center;
         height: 93vh;
+        width: 93vw;
     }
 
     h1 {
-        font-size: 6vh;
+
         height: auto;
         margin-bottom: 10px;
+        font-size: 2rem;
     }
 
     #lock {
@@ -113,13 +123,18 @@ h1 {
     .container {
         flex-direction: row;
         align-items: center;
-        height: 24rem;
+        height: 30rem;
+        width: 66vw;
     }
 
     h1 {
         padding-top: 0px;
         height: 15vh;
-        font-size: 6vh;
+        font-size: 2rem;
+    }
+
+    .grid {
+        flex-direction: column;
     }
 
     #lock {

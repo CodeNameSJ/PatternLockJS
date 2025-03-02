@@ -15,9 +15,6 @@
 
     <div class="container patternlock">
         <h1 class="patternlock" id="test">Pattern Lock</h1>
-        <div>
-
-        </div>
         <div class="grid">
             <svg class="patternlock" id="lock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g class="lock-actives patternlock"></g>
@@ -36,12 +33,11 @@
                     <circle cx="80" cy="80" r="2" />
                 </g>
             </svg>
+            <p class="test patternlock" id="test">Draw your pattern</p>
+            <input type="checkbox" id="checkboxInput" onclick="toggleDarkMode()">
+            <label for="checkboxInput" class="toggleSwitch">
+            </label>
         </div>
-        <p class="test patternlock" id="test">Draw your pattern</p>
-        <input type="checkbox" id="checkboxInput" onclick="toggleDarkMode()">
-        <label for="checkboxInput" class="toggleSwitch">
-        </label>
-    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
