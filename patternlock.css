@@ -22,7 +22,7 @@ body {
 
 .dark-mode,
 .body {
-    background: rgb(223, 223, 223);
+    background: rgb(100, 100, 100);
     transition: .36s;
 }
 
@@ -33,6 +33,8 @@ body {
 .dark-mode .container {
     background: rgb(223, 223, 223);
     color: #121212;
+    box-shadow: 6px 15px 30px #535353,
+        -6px -15px 6px #949494;
     transition: .36s;
 }
 
@@ -45,6 +47,11 @@ body {
 .grid,
 .dark-mode svg.patternlock g.lock-dots circle {
     fill: black;
+    transition: .36s;
+}
+
+.dark-mode svg.patternlock g.lock-lines line {
+    stroke: #111827;
     transition: .36s;
 }
 
@@ -152,8 +159,15 @@ svg.patternlock g.lock-dots circle {
     stroke-width: 13.5;
 }
 
-svg.patternlock g.lock-actives circle {
+.dark-mode .patternlock g.lock-actives circle {
     fill: black;
+    opacity: .2;
+    animation: lock-activate-dot .15s 0s ease 1;
+    transform-origin: center;
+}
+
+svg.patternlock g.lock-actives circle {
+    fill: rgb(255, 255, 255);
     opacity: .2;
     animation: lock-activate-dot .15s 0s ease 1;
     transform-origin: center;
@@ -268,17 +282,6 @@ svg.patternlock.error g.lock-actives circle {
 .menu-item:hover .icon {
     color: #ef4444;
 }
-
-/* .menu-bar {
-    padding: 0.5rem;
-    border-radius: 1rem;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(209, 213, 219, 0.4);
-    grid-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    position: relative;
-    overflow: hidden;
-} */
 
 .nav-glow {
     position: absolute;
