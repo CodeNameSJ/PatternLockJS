@@ -21,7 +21,7 @@ svg {
 
 .dark-mode,
 .body {
-    background: rgb(100, 100, 100);
+    background: #e8e8e8;
     transition: .36s;
 }
 
