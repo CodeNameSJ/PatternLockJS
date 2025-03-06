@@ -7,12 +7,12 @@ body {
     width: 100vw;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    background: rgb(30, 30, 30);
+    background: rgba(30, 30, 30, .9);
     transition: 0.1s, color 0.3s;
 }
 
 svg {
-    stroke: wheat;
+    stroke: whitesmoke;
 }
 
 .dark-mode svg {
@@ -64,7 +64,7 @@ svg {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: #1a1a1a;
+    background: #2c2c2c;
     position: relative;
     z-index: 1;
     background-clip: padding-box, border-box;
@@ -105,9 +105,11 @@ svg {
     gap: 5px;
     padding: 5px;
     margin-top: 6%;
-    margin-left: 10%;color: transparent;
+    margin-left: 10%;
+    color: transparent;
 }
-.box:hover{
+
+.box:hover {
     color: whitesmoke;
 }
 
@@ -259,11 +261,8 @@ svg.patternlock.error g.lock-actives circle {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 20px;
+    width: 36vw;
+    /* padding: 10px 20px; */
 }
 
 .menu-item {
@@ -404,7 +403,6 @@ svg.patternlock.error g.lock-actives circle {
 }
 
 .slider {
-    position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 25px;
@@ -440,12 +438,81 @@ svg.patternlock.error g.lock-actives circle {
     box-shadow: none;
 }
 
-.body-temp{
+.body-temp {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-.temp {
+/* .temp {
     width: 60vw;
     height: 50vh;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+/* From Uiverse.io by Madflows */
+.toggle-switch {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    scale: 50%;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+
+.checkbox {
+    position: absolute;
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.checkbox:checked~.slider {
+    background-color: var(--light);
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.checkbox:checked~.slider::before {
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
